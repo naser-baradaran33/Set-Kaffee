@@ -1,4 +1,5 @@
-import React from 'react';
+"use client"
+import React, { useEffect, useState} from 'react';
 import styles  from "./Navbr.module.css";
 import Link from 'next/link'
 import { IoIosArrowDown } from "react-icons/io";
@@ -8,6 +9,20 @@ import { FaShoppingCart,  FaRegHeart } from "react-icons/fa";
 
 
 function Navbar () {
+    const [fixTop, setFixTop] = useState(false);
+
+    useEffect(() => {
+        const fixNavbarToTop = () => {
+            const currentScrollY = window.pageYOffset;
+
+        }
+
+                window.addEventListener("scroll", fixNavbarToTop);
+
+        return () => {
+            window.removeEventListener("scroll", fixNavbarToTop);
+        }
+            }, [])
   return (
     <nav className={styles.navbar}>
         <main>
