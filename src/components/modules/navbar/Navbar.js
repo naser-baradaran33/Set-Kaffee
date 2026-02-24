@@ -2,7 +2,9 @@ import React from 'react';
 import styles  from "./Navbr.module.css";
 import Link from 'next/link'
 import { IoIosArrowDown } from "react-icons/io";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart,  FaRegHeart } from "react-icons/fa";
+
+
 
 
 function Navbar () {
@@ -58,7 +60,11 @@ function Navbar () {
             <div className={styles.navbar_icons}>
                 <Link href={'/cart'}>
                 <FaShoppingCart />
-
+                <span>1</span>
+                </Link>
+                 <Link href={'/wishlist'}>
+                <FaRegHeart />
+                <span>1</span>
                 </Link>
             </div>
         </main>
