@@ -11,7 +11,7 @@ const ForgotPassword = () => {
             <input
               className={styles.input}
               type="text"
-              placeholder="ایمیل / شماره موبایل"
+              placeholder="ایمیل c / شماره موبایل"
             />
             <button style={{ marginTop: "1rem" }} className={styles.btn}>
               بازنشانی رمزعبور
