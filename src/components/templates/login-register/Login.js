@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./login.module.css";
 import Link from "next/link";
-const Login = () => {
+const Login = ({ showRegisterForm }) => {
   return (
     <>
       <div className={styles.form}>
@@ -25,7 +25,7 @@ const Login = () => {
         </Link>
         <button className={styles.btn}>ورود با کد یکبار مصرف</button>
         <span>ایا حساب کاربری ندارید؟</span>
-        <button className={styles.btn_light}>ثبت نام</button>
+        <button onClick={showRegisterForm} className={styles.btn_light}>ثبت نام</button>
       </div>
       <Link href={"/"} className={styles.redirect_to_home}>
         لغو

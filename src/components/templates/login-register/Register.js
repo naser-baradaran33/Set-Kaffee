@@ -1,6 +1,6 @@
 import styles from "./register.module.css";
 
-const Register = () => {
+const Register = ({showloginForm}) => {
   return (
     <>
       <div className={styles.form}>
@@ -15,20 +15,20 @@ const Register = () => {
           type="email"
           placeholder="ایمیل (دلخواه)"
         />
-        {registerWithPass && (
+      
           <input
             className={styles.input}
             type="password"
             placeholder="رمز عبور"
           />
-        )}
+       
         <p style={{ marginTop: "1rem" }} className={styles.btn}>
           ثبت نام با کد تایید
         </p>
         <button style={{ marginTop: ".7rem" }} className={styles.btn}>
           ثبت نام با رمزعبور
         </button>
-        <p className={styles.back_to_login}>برگشت به ورود</p>
+        <p onClick={showloginForm} className={styles.back_to_login}>برگشت به ورود</p>
       </div>
       <p className={styles.redirect_to_home}>لغو</p>
 
