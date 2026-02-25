@@ -13,7 +13,12 @@ function Navbar () {
 
     useEffect(() => {
         const fixNavbarToTop = () => {
-            const currentScrollY = window.pageYOffset;
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 105) {
+                setFixTop(true);
+            } else {
+                setFixTop(false);
+            }
 
         }
 
@@ -24,7 +29,7 @@ function Navbar () {
         }
             }, [])
   return (
-    <nav className={styles.navbar}>
+    <nav className={fixTop ? styles.navbar_fixed : styles.navbar}>
         <main>
             <div>
                 <Link href={'/'}>
