@@ -1,10 +1,20 @@
-import React from "react";
+import { useState } from "react";
 import styles from "./login.module.css";
 import Link from "next/link";
+import Sms from "./Sms";
+
+
 const Login = ({ showRegisterForm }) => {
+   const [isLoginWithOtp, setIsLoginWithOtp] = useState(false);
+
+   const hideOtpForm = () => setIsLoginWithOtp(false);
+
   return (
     <>
-      <div className={styles.form}>
+
+    {!isLoginWithOtp ? (
+            <>
+            <div className={styles.form}>
         <input
           className={styles.input}
           type="text"
@@ -23,15 +33,18 @@ const Login = ({ showRegisterForm }) => {
         <Link href={"/forget-password"} className={styles.forgot_pass}>
           رمز عبور را فراموش کرده اید؟
         </Link>
-        <button className={styles.btn}>ورود با کد یکبار مصرف</button>
+        <button onClick={()=> setIsLoginWithOtp(true)} className={styles.btn}>ورود با کد یکبار مصرف</button>
         <span>ایا حساب کاربری ندارید؟</span>
         <button onClick={showRegisterForm} className={styles.btn_light}>ثبت نام</button>
       </div>
       <Link href={"/"} className={styles.redirect_to_home}>
         لغو
       </Link>
-
-      {/* <Sms /> */}
+           </>
+        ) : (
+            <Sms hideOtpForm={hideOtpForm} />
+         )
+    }
     </>
   );
 };
